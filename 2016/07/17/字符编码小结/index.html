@@ -84,20 +84,32 @@
 
 
 
-<meta name="description" content="不总结一下字符编码，简直对不起这些年踩过的坑们。
-字符编码字符编码可以理解为一张一对一的码表，什么？你说你没见过码表，讲真，ascii码表你没见过？！中国常用字符编码的关系可以参考下图。">
+<meta name="description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
+
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符编码小结">
 <meta property="og:url" content="http://yoursite.com/2016/07/17/字符编码小结/index.html">
 <meta property="og:site_name" content="Daisy's Home">
-<meta property="og:description" content="不总结一下字符编码，简直对不起这些年踩过的坑们。
-字符编码字符编码可以理解为一张一对一的码表，什么？你说你没见过码表，讲真，ascii码表你没见过？！中国常用字符编码的关系可以参考下图。">
+<meta property="og:description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
+
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
 <meta property="og:image" content="http://yoursite.com/img/unicode.png">
-<meta property="og:updated_time" content="2016-07-17T15:59:50.000Z">
+<meta property="og:image" content="http://yoursite.com/img/gbk.png">
+<meta property="og:image" content="http://yoursite.com/img/gbk1.png">
+<meta property="og:image" content="http://yoursite.com/img/endecode.png">
+<meta property="og:updated_time" content="2016-07-18T16:06:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码小结">
-<meta name="twitter:description" content="不总结一下字符编码，简直对不起这些年踩过的坑们。
-字符编码字符编码可以理解为一张一对一的码表，什么？你说你没见过码表，讲真，ascii码表你没见过？！中国常用字符编码的关系可以参考下图。">
+<meta name="twitter:description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
+
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
 <meta name="twitter:image" content="http://yoursite.com/img/unicode.png">
 
 
@@ -291,9 +303,27 @@
       
 
       
-        <p>不总结一下字符编码，简直对不起这些年踩过的坑们。</p>
-<h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码可以理解为一张一对一的码表，什么？你说你没见过码表，讲真，ascii码表你没见过？！中国常用字符编码的关系可以参考下图。</p>
+        <p>不总结一下字符编码，感觉对不起这些年我踩过的坑们。</p>
+<h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。</p>
 <p><img src="/img/unicode.png" alt="字符编码"></p>
+<p>美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。</p>
+<h2 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h2><p>你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞的一套编码。具体来说就是这样的。</p>
+<p><img src="/img/gbk.png" alt="gbk发展"></p>
+<p>在GB2312阶段，要求2个字节都大于127, 这样，中文汉字与ascii表字符是很好区分的。但这样表示的汉字数量有限，不够发挥啊，所以到GBK阶段，放弃了第2字节必须大于127的要求。这样一来，表示所有汉字倒是够了，但从此以后，中英文夹杂的GBK编码，只能先判断是不是大于127，如果是，我跳一位，如果不是，认为是英文。这简直是<strong><em>万坑之源！！！</em></strong></p>
+<p><img src="/img/gbk1.png" alt="gbk跳"></p>
+<p>从此以后，买张cd看真的好难！</p>
+<p>更别提字符分隔这等事件了，如果你的日志是用竖线分隔，如果你的日志包含中文，如果你的中文是gbk编码，那么。。。我劝你还是转了utf-8再分隔吧。。。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s=<span class="string">"滕华弢|海青"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line"><span class="string">'\xeb\xf8\xbb\xaa\x8f||\xba\xa3\xc7\xe0'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x=s.split(<span class="string">'|'</span>)</div><div class="line">[<span class="string">'\xeb\xf8\xbb\xaa\x8f'</span>, <span class="string">''</span>, <span class="string">'\xba\xa3\xc7\xe0'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x[<span class="number">0</span>]</div><div class="line">滕华�</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x[<span class="number">2</span>]</div><div class="line">海青</div></pre></td></tr></table></figure>
+<p>上面的”弢“字，gbk编码为0x8f7c，第2字节编码恰好与分隔线“|”重合了。分隔之后，直接分隔就会导致以上错误。</p>
+<h2 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h2><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>unicode到utf-16的转换很简单，一对一。到utf-8遵循以下规则。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">unicode</div><div class="line">UTF-8</div><div class="line">0000 - 007F</div><div class="line">0xxxxxxx</div><div class="line">0080 - 07FF</div><div class="line">110xxxxx 10xxxxxx</div><div class="line">0800 - FFFF</div><div class="line">1110xxxx 10xxxxxx 10xxxxxx</div></pre></td></tr></table></figure>
+<p>例如”汉”字的Unicode编码是6C49。6C49在0800-FFFF之间，所以要用3字节模板：1110xxxx 10xxxxxx 10xxxxxx。将6C49写成二进制是：0110 1100 0100 1001，将这个比特流按三字节模板的分段方法分为0110 110001 001001，依次代替模板中的x，得到：1110-0110 10-110001 10-001001，即E6 B1 89，这就是其UTF8的编码。</p>
+<h4 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h4><p>BOM(Byte Order Mark).保存文件的时候不会保存编码格式，打开文件时，却需要解码。这时就有很多麻烦。bom就是utf引入，在文档开头写bom，标识自己的编码格式。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BOM_UTF8 <span class="string">'\xef\xbb\xbf'</span> </div><div class="line">BOM_UTF16_LE <span class="string">'\xff\xfe'</span> </div><div class="line">BOM_UTF16_BE <span class="string">'\xfe\xff'</span></div></pre></td></tr></table></figure>
+<p>并不是所有的编辑器都写入bom，这种编辑器会采用一种默认格式解码，不成功再换另外一种。</p>
+<h4 id="UTF-8还是UTF8"><a href="#UTF-8还是UTF8" class="headerlink" title="UTF-8还是UTF8?"></a>UTF-8还是UTF8?</h4><p>可能在很多地方，你发现utf8,UTF8,utf-8,UTF-8都能用。到底哪个是对的呢？首先大小写是忽略的。UTF-8是标准名字，UTF8是别名，有些语言和场合定义了这个别名，但有些没有。所以用 UTF-8总是保险的。个人发现python,mysql,linux的iconv用二者都可以，node.js的iconv-lite只能用utf-8。</p>
+<h2 id="GBK与UTF-8的转换"><a href="#GBK与UTF-8的转换" class="headerlink" title="GBK与UTF-8的转换"></a>GBK与UTF-8的转换</h2><p>从上面的介绍可以知道：GBK是一张码表。unicode是一张码表。UTF-8是基于unicode的一种编码方式GBK到unicode可以查表得到, unicode到UTF-8可以按规则转换。</p>
+<p><img src="/img/endecode.png" alt="encodedecode"></p>
 
       
     </div>
@@ -425,7 +455,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符编码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK"><span class="nav-number">2.</span> <span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-8"><span class="nav-number">3.</span> <span class="nav-text">UTF-8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编码"><span class="nav-number">3.0.1.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM"><span class="nav-number">3.0.2.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF-8还是UTF8"><span class="nav-number">3.0.3.</span> <span class="nav-text">UTF-8还是UTF8?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK与UTF-8的转换"><span class="nav-number">4.</span> <span class="nav-text">GBK与UTF-8的转换</span></a></li></ol></div>
             
           </div>
         </section>
