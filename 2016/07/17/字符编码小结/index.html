@@ -85,31 +85,34 @@
 
 
 <meta name="description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
 美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符编码小结">
 <meta property="og:url" content="http://yoursite.com/2016/07/17/字符编码小结/index.html">
 <meta property="og:site_name" content="Daisy's Home">
 <meta property="og:description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
 美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
 <meta property="og:image" content="http://yoursite.com/img/unicode.png">
 <meta property="og:image" content="http://yoursite.com/img/gbk.png">
 <meta property="og:image" content="http://yoursite.com/img/gbk1.png">
 <meta property="og:image" content="http://yoursite.com/img/endecode.png">
-<meta property="og:updated_time" content="2016-07-18T16:06:00.000Z">
+<meta property="og:updated_time" content="2016-07-20T15:08:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码小结">
 <meta name="twitter:description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
+所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
 美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞">
+GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
 <meta name="twitter:image" content="http://yoursite.com/img/unicode.png">
 
 
@@ -304,6 +307,7 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 
       
         <p>不总结一下字符编码，感觉对不起这些年我踩过的坑们。</p>
+<p>所有的python基于2.x</p>
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。</p>
 <p><img src="/img/unicode.png" alt="字符编码"></p>
 <p>美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。</p>
@@ -315,6 +319,7 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 <p>更别提字符分隔这等事件了，如果你的日志是用竖线分隔，如果你的日志包含中文，如果你的中文是gbk编码，那么。。。我劝你还是转了utf-8再分隔吧。。。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s=<span class="string">"滕华弢|海青"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line"><span class="string">'\xeb\xf8\xbb\xaa\x8f||\xba\xa3\xc7\xe0'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x=s.split(<span class="string">'|'</span>)</div><div class="line">[<span class="string">'\xeb\xf8\xbb\xaa\x8f'</span>, <span class="string">''</span>, <span class="string">'\xba\xa3\xc7\xe0'</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x[<span class="number">0</span>]</div><div class="line">滕华�</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> x[<span class="number">2</span>]</div><div class="line">海青</div></pre></td></tr></table></figure>
 <p>上面的”弢“字，gbk编码为0x8f7c，第2字节编码恰好与分隔线“|”重合了。分隔之后，直接分隔就会导致以上错误。</p>
+<p>BIG5是大混战时期，台湾，香港，澳门等地采用的繁体编码。</p>
 <h2 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h2><h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><p>unicode到utf-16的转换很简单，一对一。到utf-8遵循以下规则。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">unicode</div><div class="line">UTF-8</div><div class="line">0000 - 007F</div><div class="line">0xxxxxxx</div><div class="line">0080 - 07FF</div><div class="line">110xxxxx 10xxxxxx</div><div class="line">0800 - FFFF</div><div class="line">1110xxxx 10xxxxxx 10xxxxxx</div></pre></td></tr></table></figure>
 <p>例如”汉”字的Unicode编码是6C49。6C49在0800-FFFF之间，所以要用3字节模板：1110xxxx 10xxxxxx 10xxxxxx。将6C49写成二进制是：0110 1100 0100 1001，将这个比特流按三字节模板的分段方法分为0110 110001 001001，依次代替模板中的x，得到：1110-0110 10-110001 10-001001，即E6 B1 89，这就是其UTF8的编码。</p>
@@ -322,8 +327,37 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">BOM_UTF8 <span class="string">'\xef\xbb\xbf'</span> </div><div class="line">BOM_UTF16_LE <span class="string">'\xff\xfe'</span> </div><div class="line">BOM_UTF16_BE <span class="string">'\xfe\xff'</span></div></pre></td></tr></table></figure>
 <p>并不是所有的编辑器都写入bom，这种编辑器会采用一种默认格式解码，不成功再换另外一种。</p>
 <h4 id="UTF-8还是UTF8"><a href="#UTF-8还是UTF8" class="headerlink" title="UTF-8还是UTF8?"></a>UTF-8还是UTF8?</h4><p>可能在很多地方，你发现utf8,UTF8,utf-8,UTF-8都能用。到底哪个是对的呢？首先大小写是忽略的。UTF-8是标准名字，UTF8是别名，有些语言和场合定义了这个别名，但有些没有。所以用 UTF-8总是保险的。个人发现python,mysql,linux的iconv用二者都可以，node.js的iconv-lite只能用utf-8。</p>
-<h2 id="GBK与UTF-8的转换"><a href="#GBK与UTF-8的转换" class="headerlink" title="GBK与UTF-8的转换"></a>GBK与UTF-8的转换</h2><p>从上面的介绍可以知道：GBK是一张码表。unicode是一张码表。UTF-8是基于unicode的一种编码方式GBK到unicode可以查表得到, unicode到UTF-8可以按规则转换。</p>
+<h2 id="GBK与UTF-8的转换"><a href="#GBK与UTF-8的转换" class="headerlink" title="GBK与UTF-8的转换"></a>GBK与UTF-8的转换</h2><p>从上面的介绍可以知道：GBK是一张码表。unicode是一张码表。UTF-8是基于unicode的一种编码方式。GBK到unicode可以查表得到, unicode到UTF-8可以按规则转换。</p>
 <p><img src="/img/endecode.png" alt="encodedecode"></p>
+<p>有了以上知识，想要编解码就有点谱了。</p>
+<h2 id="python中的字符编码"><a href="#python中的字符编码" class="headerlink" title="python中的字符编码"></a>python中的字符编码</h2><h3 id="是str还是unicode"><a href="#是str还是unicode" class="headerlink" title="是str还是unicode?"></a>是str还是unicode?</h3><p>先看下面一段代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x=<span class="string">'你好'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x</div><div class="line"><span class="string">'\xe4\xbd\xa0\xe5\xa5\xbd'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x.decode(<span class="string">'utf-8'</span>).encode(<span class="string">'gbk'</span>)  <span class="comment">#x为str</span></div><div class="line"><span class="string">'\xc4\xe3\xba\xc3'</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y=<span class="string">u'你好'</span>           <span class="comment">#y为unicode</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y</div><div class="line"><span class="string">u'\u4f60\u597d'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y.encode(<span class="string">'gbk'</span>)</div><div class="line"><span class="string">'\xc4\xe3\xba\xc3'</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>len(x)     <span class="comment">#x为字节串</span></div><div class="line"><span class="number">6</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>len(y)    <span class="comment">#y为字符串</span></div><div class="line"><span class="number">2</span></div></pre></td></tr></table></figure>
+<p>上面的x和y，在转换为gbk编码的时候，分别是</p>
+<p>x.decode(‘utf-8’).encode(‘gbk’) </p>
+<p>y.encode(‘gbk’)</p>
+<p>区别就在于前面的u，如果声明的时候不加u, 默认是文档声明的编码串(我的环境为utf-8)，如果加u,则为unicode串。值得注意的是，如果在写.py文件的时候不声明编码，默认为ascii, 则不支持中文。</p>
+<p>如果不带u声明, str其实是字节串，它是unicode经过编码后的字节组成的序列。上例是len(x)=6</p>
+<p>带u声明，unicode是字符串，上例中y一共有2个unicode编码，len(y)=2</p>
+<h3 id="编码声明"><a href="#编码声明" class="headerlink" title="编码声明"></a>编码声明</h3><p>.py文件中，如果有用到非ASCII字符，则需要在文件头部进行字符编码的声明</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-- coding: UTF-8 --</span></div><div class="line"><span class="comment">#-- coding: GBK --</span></div></pre></td></tr></table></figure>
+<h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3><p>内置的open操作str，写入读出都要编码后再操作，直接操作unicode会报错。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding: UTF-8</span></div><div class="line">f = open(<span class="string">'test.txt'</span>)</div><div class="line">s = f.read()</div><div class="line">f.close()</div><div class="line"><span class="keyword">print</span> type(s) <span class="comment"># &lt;type 'str'&gt;</span></div><div class="line"><span class="comment"># 已知是GBK编码，解码成unicode</span></div><div class="line">u = s.decode(<span class="string">'GBK'</span>)</div><div class="line">f = open(<span class="string">'test.txt'</span>, <span class="string">'w'</span>)</div><div class="line"><span class="comment"># 编码成UTF-8编码的str</span></div><div class="line"><span class="comment"># f.write(u) 报错</span></div><div class="line">f.write(u.encode(<span class="string">'UTF-8'</span>))</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<p>模块codecs提供了一个open()方法，可操作unicode，可自动编解码。推荐使用。</p>
+<p>打开时，可以指定一个编码打开文件，使用这个方法打开的文件读取返回的将是unicode。</p>
+<p>写入时，如果参数是unicode，则使用open()时指定的编码进行编码后写入；如果是str，则先根据源代码文件声明的字符编码，解码成unicode后再进行前述操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding: GBK</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"> </div><div class="line">f = codecs.open(<span class="string">'test.txt'</span>, encoding=<span class="string">'UTF-8'</span>)</div><div class="line">u = f.read()</div><div class="line">f.close()</div><div class="line"><span class="keyword">print</span> type(u) <span class="comment"># &lt;type 'unicode'&gt;</span></div><div class="line"> </div><div class="line">f = codecs.open(<span class="string">'test.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'UTF-8'</span>)</div><div class="line"><span class="comment"># 写入unicode，自动编码为utf-8</span></div><div class="line">f.write(u)</div><div class="line"> </div><div class="line"><span class="comment"># 写入str，自动进行解码编码操作</span></div><div class="line"><span class="comment"># GBK编码的str</span></div><div class="line">s = <span class="string">'你好'</span></div><div class="line"><span class="keyword">print</span> repr(s) <span class="comment"># '\xba\xba'</span></div><div class="line"><span class="comment"># 这里会先将GBK编码的str解码为unicode再编码为UTF-8写入</span></div><div class="line">f.write(s) </div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<h2 id="Node-js中的编码"><a href="#Node-js中的编码" class="headerlink" title="Node.js中的编码"></a>Node.js中的编码</h2><p>Node.js中的字符串都是utf-8。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> iconv=<span class="built_in">require</span>(<span class="string">'iconv-lite'</span>)</div><div class="line">&gt; s=<span class="string">'你好'</span></div><div class="line"><span class="string">'你好'</span></div><div class="line">&gt;utfbuf=<span class="keyword">new</span> Buffer(s)</div><div class="line">&lt;Buffer e4 bd a0 e5 a5 bd&gt;  <span class="comment">//utf-8 buffer</span></div><div class="line"></div><div class="line">&gt; gbkbuf=iconv.encode(s,<span class="string">'gbk'</span>) <span class="comment">//encode为gbk buffer</span></div><div class="line">&lt;Buffer c4 e3 ba c3&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">String</span>(utfs))</div><div class="line">你好</div><div class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">String</span>(gbks)) <span class="comment">//啊呀，我要崩溃了. gbk是个什么鬼，我不认识</span></div><div class="line">����</div></pre></td></tr></table></figure>
+<p>如果要发送给前端，直接写buffer。只用调用res.setEncoding就好了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">res.write(gbks)</div><div class="line">res.setEncoding(<span class="string">'utf-8'</span>)</div><div class="line">res.end()</div></pre></td></tr></table></figure>
+<h2 id="倆眼不识‘锟斤拷’"><a href="#倆眼不识‘锟斤拷’" class="headerlink" title="倆眼不识‘锟斤拷’"></a>倆眼不识‘锟斤拷’</h2><p>我不信有谁没见过 ‘锟斤拷’。</p>
+<p>要想见到‘锟斤拷’很简单，只用在编码为gbk的shell中，开启node。随意地写上2个汉字，都会变成‘锟斤拷’。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; s=<span class="string">'锟斤拷锟斤拷'</span></div><div class="line"><span class="string">'锟斤拷锟斤拷'</span></div><div class="line">&gt; <span class="keyword">new</span> Buffer(s)</div><div class="line">&lt;Buffer ef bf bd ef bf bd ef bf bd ef bf bd&gt;</div></pre></td></tr></table></figure>
+<p>产生的原因是utf-8对认识的编码，采用一个固定编码 0xefbfbd 替换。打印出来就是�。如果不巧用gbk来解码。二个�� 0xefbfbd 0xefbfbd，在gbk看来就是0xefbf锟 0xbdef斤 0xbfbd拷。</p>
+<p>mysql中的编码那更是知识更多，坑更多。</p>
+<p>所知有限，先总结到这里了。</p>
+<p>.</p>
 
       
     </div>
@@ -455,7 +489,7 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK"><span class="nav-number">2.</span> <span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-8"><span class="nav-number">3.</span> <span class="nav-text">UTF-8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编码"><span class="nav-number">3.0.1.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM"><span class="nav-number">3.0.2.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF-8还是UTF8"><span class="nav-number">3.0.3.</span> <span class="nav-text">UTF-8还是UTF8?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK与UTF-8的转换"><span class="nav-number">4.</span> <span class="nav-text">GBK与UTF-8的转换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符编码"><span class="nav-number">1.</span> <span class="nav-text">字符编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK"><span class="nav-number">2.</span> <span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UTF-8"><span class="nav-number">3.</span> <span class="nav-text">UTF-8</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编码"><span class="nav-number">3.0.1.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BOM"><span class="nav-number">3.0.2.</span> <span class="nav-text">BOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF-8还是UTF8"><span class="nav-number">3.0.3.</span> <span class="nav-text">UTF-8还是UTF8?</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GBK与UTF-8的转换"><span class="nav-number">4.</span> <span class="nav-text">GBK与UTF-8的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python中的字符编码"><span class="nav-number">5.</span> <span class="nav-text">python中的字符编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#是str还是unicode"><span class="nav-number">5.1.</span> <span class="nav-text">是str还是unicode?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码声明"><span class="nav-number">5.2.</span> <span class="nav-text">编码声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写文件"><span class="nav-number">5.3.</span> <span class="nav-text">读写文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js中的编码"><span class="nav-number">6.</span> <span class="nav-text">Node.js中的编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#倆眼不识‘锟斤拷’"><span class="nav-number">7.</span> <span class="nav-text">倆眼不识‘锟斤拷’</span></a></li></ol></div>
             
           </div>
         </section>
