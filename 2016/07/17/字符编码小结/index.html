@@ -88,8 +88,7 @@
 所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
-美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符编码小结">
 <meta property="og:url" content="http://yoursite.com/2016/07/17/字符编码小结/index.html">
@@ -98,21 +97,19 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
-美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。">
 <meta property="og:image" content="http://yoursite.com/img/unicode.png">
 <meta property="og:image" content="http://yoursite.com/img/gbk.png">
 <meta property="og:image" content="http://yoursite.com/img/gbk1.png">
 <meta property="og:image" content="http://yoursite.com/img/endecode.png">
-<meta property="og:updated_time" content="2016-07-20T15:08:01.000Z">
+<meta property="og:updated_time" content="2016-07-23T14:36:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符编码小结">
 <meta name="twitter:description" content="不总结一下字符编码，感觉对不起这些年我踩过的坑们。
 所有的python基于2.x
 字符编码字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。
 
-美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。
-GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是">
+美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。">
 <meta name="twitter:image" content="http://yoursite.com/img/unicode.png">
 
 
@@ -287,6 +284,13 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/17/字符编码小结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/字符编码小结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -311,6 +315,7 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>字符编码可以理解为一张一对一的码表，ascii码表即最常见的码表之一，中国常用字符编码的关系可以参考下图。</p>
 <p><img src="/img/unicode.png" alt="字符编码"></p>
 <p>美国人可真强势，自己享受1字节，让众多非英语国家，unicode编码从2字节变为2~4字节。中文大多数为3字节。</p>
+<a id="more"></a>
 <h2 id="GBK"><a href="#GBK" class="headerlink" title="GBK"></a>GBK</h2><p>你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国标。是在unicode之前中国自己搞的一套编码。具体来说就是这样的。</p>
 <p><img src="/img/gbk.png" alt="gbk发展"></p>
 <p>在GB2312阶段，要求2个字节都大于127, 这样，中文汉字与ascii表字符是很好区分的。但这样表示的汉字数量有限，不够发挥啊，所以到GBK阶段，放弃了第2字节必须大于127的要求。这样一来，表示所有汉字倒是够了，但从此以后，中英文夹杂的GBK编码，只能先判断是不是大于127，如果是，我跳一位，如果不是，认为是英文。这简直是<strong><em>万坑之源！！！</em></strong></p>
@@ -346,13 +351,14 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 <p>打开时，可以指定一个编码打开文件，使用这个方法打开的文件读取返回的将是unicode。</p>
 <p>写入时，如果参数是unicode，则使用open()时指定的编码进行编码后写入；如果是str，则先根据源代码文件声明的字符编码，解码成unicode后再进行前述操作。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding: GBK</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"> </div><div class="line">f = codecs.open(<span class="string">'test.txt'</span>, encoding=<span class="string">'UTF-8'</span>)</div><div class="line">u = f.read()</div><div class="line">f.close()</div><div class="line"><span class="keyword">print</span> type(u) <span class="comment"># &lt;type 'unicode'&gt;</span></div><div class="line"> </div><div class="line">f = codecs.open(<span class="string">'test.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'UTF-8'</span>)</div><div class="line"><span class="comment"># 写入unicode，自动编码为utf-8</span></div><div class="line">f.write(u)</div><div class="line"> </div><div class="line"><span class="comment"># 写入str，自动进行解码编码操作</span></div><div class="line"><span class="comment"># GBK编码的str</span></div><div class="line">s = <span class="string">'你好'</span></div><div class="line"><span class="keyword">print</span> repr(s) <span class="comment"># '\xba\xba'</span></div><div class="line"><span class="comment"># 这里会先将GBK编码的str解码为unicode再编码为UTF-8写入</span></div><div class="line">f.write(s) </div><div class="line">f.close()</div></pre></td></tr></table></figure>
-<h2 id="Node-js中的编码"><a href="#Node-js中的编码" class="headerlink" title="Node.js中的编码"></a>Node.js中的编码</h2><p>Node.js中的字符串都是utf-8。</p>
+<h2 id="Node-js中的编码"><a href="#Node-js中的编码" class="headerlink" title="Node.js中的编码"></a>Node.js中的编码</h2><p>Node.js中的字符串都是utf-8。引入iconv-lite等模块处理gbk.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">var</span> iconv=<span class="built_in">require</span>(<span class="string">'iconv-lite'</span>)</div><div class="line">&gt; s=<span class="string">'你好'</span></div><div class="line"><span class="string">'你好'</span></div><div class="line">&gt;utfbuf=<span class="keyword">new</span> Buffer(s)</div><div class="line">&lt;Buffer e4 bd a0 e5 a5 bd&gt;  <span class="comment">//utf-8 buffer</span></div><div class="line"></div><div class="line">&gt; gbkbuf=iconv.encode(s,<span class="string">'gbk'</span>) <span class="comment">//encode为gbk buffer</span></div><div class="line">&lt;Buffer c4 e3 ba c3&gt;</div></pre></td></tr></table></figure>
+<p>gbk编码只能以Buffer保存。转换为字符串打印或者传参都会乱码。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">String</span>(utfs))</div><div class="line">你好</div><div class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">String</span>(gbks)) <span class="comment">//啊呀，我要崩溃了. gbk是个什么鬼，我不认识</span></div><div class="line">����</div></pre></td></tr></table></figure>
 <p>如果要发送给前端，直接写buffer。只用调用res.setEncoding就好了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">res.write(gbks)</div><div class="line">res.setEncoding(<span class="string">'utf-8'</span>)</div><div class="line">res.end()</div></pre></td></tr></table></figure>
 <h2 id="倆眼不识‘锟斤拷’"><a href="#倆眼不识‘锟斤拷’" class="headerlink" title="倆眼不识‘锟斤拷’"></a>倆眼不识‘锟斤拷’</h2><p>我不信有谁没见过 ‘锟斤拷’。</p>
-<p>要想见到‘锟斤拷’很简单，只用在编码为gbk的shell中，开启node。随意地写上2个汉字，都会变成‘锟斤拷’。</p>
+<p>要想见到‘锟斤拷’很简单，只用在编码为gbk的shell中，开启node。随意地写上2个汉字，都会变成‘锟斤拷’。或者在nodepad++中，先设编码为utf8。把��复印进去。再将编码设为ANSI。‘锟斤拷’就出现啦。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; s=<span class="string">'锟斤拷锟斤拷'</span></div><div class="line"><span class="string">'锟斤拷锟斤拷'</span></div><div class="line">&gt; <span class="keyword">new</span> Buffer(s)</div><div class="line">&lt;Buffer ef bf bd ef bf bd ef bf bd ef bf bd&gt;</div></pre></td></tr></table></figure>
 <p>产生的原因是utf-8对认识的编码，采用一个固定编码 0xefbfbd 替换。打印出来就是�。如果不巧用gbk来解码。二个�� 0xefbfbd 0xefbfbd，在gbk看来就是0xefbf锟 0xbdef斤 0xbfbd拷。</p>
 <p>mysql中的编码那更是知识更多，坑更多。</p>
@@ -383,13 +389,13 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/16/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/23/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -414,6 +420,10 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/17/字符编码小结/"
+           data-title="字符编码小结" data-url="http://yoursite.com/2016/07/17/字符编码小结/">
+      </div>
     
   </div>
 
@@ -610,9 +620,30 @@ GBK你一定对GB2312，GBK，GB1080一堆的玩意不陌生。GB的意思是国
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"daisyl0"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
